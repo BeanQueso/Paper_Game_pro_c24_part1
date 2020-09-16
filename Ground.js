@@ -1,12 +1,12 @@
 class Ground{
-constructor(){
+constructor(x, y, width, height){
 var options = {
     isStatic:true,
 }
 
-this.body = Bodies.rectangle(400, 680, 800, 20, options);
-this.width = 800;
-this.height = 20;
+this.body = Bodies.rectangle(x, y, width, height, options);
+this.width = width;
+this.height = height;
 World.add(world, this.body)
 
 }

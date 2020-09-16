@@ -3,10 +3,9 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-var paper, ground, rect1, rect2;
+var paper, ground, rect1, rect2, rect3;
 function preload()
 {
-	
 }
 
 function setup() {
@@ -19,11 +18,17 @@ function setup() {
 	//Create the Bodies Here.
 	paper = new Paper();
 
-	ground = new Ground();
+	ground = new Ground(400, 680, 800, 20);
 
-	rect1 = new Dustbin(480, 600, 50, 150);
+	rect1 = new Ground(450, 600, 20, 150);
 
-	rect2 = new Dustbin(770, 600, 50, 150);
+	rect2 = new Ground(550, 600, 20, 150);
+
+	
+
+
+
+
 	Engine.run(engine);
   
 }
@@ -33,6 +38,7 @@ function draw() {
   rectMode(CENTER);
   background(0);
   Engine.update(engine);
+  
 
   paper.display();
  
@@ -41,11 +47,13 @@ function draw() {
   rect1.display();
 
   rect2.display();
+
+
 }
 function keyPressed(){
 if(keyCode === UP_ARROW){
 
-Matter.Body.applyForce(paper.body, paper.body.position,{x:40,y:-40});
+Matter.Body.applyForce(paper.body, paper.body.position,{x:9.5,y:-9.5});
 
 }
 
